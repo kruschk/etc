@@ -1,10 +1,7 @@
 #include <stdio.h>
 
 int main(void) {
-	size_t i = 0;
-	while (i++ < 3) {
-		printf("hello, world!\n");
+	for (int i = 0; i < 10000; i++) {
+		printf("%d ", i);
 	}
-	
-	return 0;
 }
