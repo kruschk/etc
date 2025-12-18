@@ -3,4 +3,3 @@ def sleep_in(weekday, vacation):
         return False
     elif weekday == False and vacation == True:
         return True
-    

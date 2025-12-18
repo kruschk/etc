@@ -1,7 +1,8 @@
 import time
 
 start = time.clock()
-door_initial = [0 for x in range(100)] # 0 will indicate closed, 1 will indicate open
+door_initial = [0 for x in range(100)]  # 0 will indicate closed, 1 will indicate open
+
 
 def toggle(list_in, incr):
     # returns a list containing the opposite of whatever was in the list (0 or 1) for each increment.
@@ -15,6 +16,7 @@ def toggle(list_in, incr):
             i += incr
     return list_in
 
+
 def step(list_in):
     # loops through and calls toggle(list_in, incr) as many times as is necessary
     list_out = list_in
@@ -24,7 +26,9 @@ def step(list_in):
         j += 1
     return list_out
 
-final = (step(door_initial))
+
+final = step(door_initial)
+
 
 def conversion(list_in):
     list_out = []
@@ -36,6 +40,7 @@ def conversion(list_in):
             k += 1
             continue
     return list_out
+
 
 print(conversion(final))
 end = time.clock()

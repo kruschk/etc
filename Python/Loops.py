@@ -7,4 +7,5 @@ def remove_duplicates(list_in):
             continue
     return list_out
 
+
 print(remove_duplicates(["string", "string", "another string", 2, 3, 2]))

@@ -1,6 +1,7 @@
-#/usr/bin/python3
+# /usr/bin/python3
 
 import os, shutil, sys
+
 
 def recursive_copy(source, dest):
     # scan the directory for entries
@@ -15,19 +16,24 @@ def recursive_copy(source, dest):
             elif entry.is_dir():
                 os.mkdir(dest + os.path.sep + entry.name + "_working")
                 # recurse
-                recursive_copy(source + os.path.sep + entry.name, \
-                        dest + os.path.sep + entry.name + "_working")
+                recursive_copy(
+                    source + os.path.sep + entry.name,
+                    dest + os.path.sep + entry.name + "_working",
+                )
             # copy files as required
             else:
-                shutil.copy(source + os.path.sep + entry.name, \
-                        dest + os.path.sep + entry.name + "_working")
+                shutil.copy(
+                    source + os.path.sep + entry.name,
+                    dest + os.path.sep + entry.name + "_working",
+                )
+
 
 # Copies all files and folders from SRC_DIR to DEST_DIR, appending "_working"
 # to each entry in the destination directory.
 def main():
     # source path from which all files and directories shall be copied
-    #SRC_DIR = "%shome%sjonah%sDocuments%sGEOS455%sAssign1" % \
-            #(os.path.sep, os.path.sep, os.path.sep, os.path.sep, os.path.sep)
+    # SRC_DIR = "%shome%sjonah%sDocuments%sGEOS455%sAssign1" % \
+    # (os.path.sep, os.path.sep, os.path.sep, os.path.sep, os.path.sep)
     SRC_DIR = ".{}".format(os.path.sep)
 
     # destination path
@@ -39,8 +45,10 @@ def main():
     # if destination path exists (but isn't a directory), tell the user and
     # exit
     elif os.path.exists(DEST_DIR):
-        print('A non-directory entry already exists at "%s". '
-                'Please rename or delete the existing entry.' % (DEST_DIR))
+        print(
+            'A non-directory entry already exists at "%s". '
+            "Please rename or delete the existing entry." % (DEST_DIR)
+        )
         sys.exit(1)
 
     # make the working directory
@@ -48,6 +56,7 @@ def main():
 
     # perform the copy operation
     recursive_copy(SRC_DIR, DEST_DIR)
+
 
 if "__main__" == __name__:
     main()

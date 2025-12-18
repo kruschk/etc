@@ -2,11 +2,12 @@
 
 import os
 
+
 # Create a main folder which contains a data folder, mxd folder, and output
 # folder, plus any additional folders that the user desires.
 def main():
-    #WORKING_DIR = "%shome%sjonah%sDocuments%sGEOS455%sAssign1" % \
-            #(os.path.sep, os.path.sep, os.path.sep, os.path.sep, os.path.sep)
+    # WORKING_DIR = "%shome%sjonah%sDocuments%sGEOS455%sAssign1" % \
+    # (os.path.sep, os.path.sep, os.path.sep, os.path.sep, os.path.sep)
     WORKING_DIR = ".{}".format(os.path.sep)
 
     # Get the names of the mandatory folders
@@ -26,11 +27,12 @@ def main():
     while True:
         # Determine if the user would like to create a folder and test their
         # input.
-        keep_going = input('Would you like to generate another subfolder? '
-                'Please enter "yes" or "no": ')
+        keep_going = input(
+            "Would you like to generate another subfolder? "
+            'Please enter "yes" or "no": '
+        )
         while "yes" != keep_going.lower() and "no" != keep_going.lower():
-            keep_going = input('Invalid response. '
-                    'Please enter "yes" or "no". ')
+            keep_going = input("Invalid response. " 'Please enter "yes" or "no". ')
 
         # Create another folder
         if "yes" == keep_going.lower():
@@ -40,6 +42,7 @@ def main():
         else:
             print("Done generating folders. Exiting program.")
             break
+
 
 if "__main__" == __name__:
     main()
